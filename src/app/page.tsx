@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { CartItem } from '@/types/cart';
 import styles from './page.module.css'
 
 function ItemCount({count, name}: {count: number, name: string}) {
@@ -7,7 +8,7 @@ function ItemCount({count, name}: {count: number, name: string}) {
 };
 
 export default function Home() {
-  const [items, setItems] = useState<{name: string, quantity: number}[]>([]);
+  const [items, setItems] = useState<CartItem[]>([]);
   const [itemCount, setItemCount] = useState<number>(0);
 
   const addToCart = (product: string) => {
@@ -27,7 +28,7 @@ export default function Home() {
           Michael&apos;s Amazing Web Store
         </p>
         <div>
-          <button className={styles.basket}>Basket: {itemCount} items</button>
+        <button className={styles.basket}>Basket: {itemCount} items</button>
           <ItemCount name="Item 1" count={items.find(item=> item.name === 'Item 1')?.quantity || 0}/>
           <ItemCount name="Item 2" count={items.find(item=> item.name === 'Item 2')?.quantity || 0}/>
           <ItemCount name="Item 3" count={items.find(item=> item.name === 'Item 3')?.quantity || 0}/>
