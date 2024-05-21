@@ -41,7 +41,6 @@
   width: var(--max-width);
 }
 
-.basket,
 .card {
   cursor: pointer;
   padding: 1rem 1.2rem;
@@ -73,7 +72,6 @@
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  .basket:hover,
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
@@ -103,7 +101,6 @@
     text-align: center;
   }
 
-  .basket,
   .card {
     padding: 1rem 2.5rem;
   }
