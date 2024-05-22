@@ -8,8 +8,7 @@ interface BasketItemProps {
 const BasketItem = ({ name, count }: BasketItemProps) => {
   return (
     <li className={styles["basket-item"]}>
-      <p className={styles["basket-item-text"]}>{name}</p>
-      <p className={styles["basket-item-text"]}>count: {count}</p>
+      {name} count: {count}
     </li>
   );
 };

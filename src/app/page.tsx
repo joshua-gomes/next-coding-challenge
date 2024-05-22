@@ -1,49 +1,26 @@
-"use client";
-import { useState } from "react";
-import { CartItem } from "@/types/cart";
 import Basket from "@/components/Basket";
 import ProductList from "@/components/ProductList";
+import { productsMock } from "@/mocks/products/productsMock";
 import styles from "./page.module.css";
 
-const itemsList = [
-  {
-    name: "Item 1",
-    blurb: "Foo",
-  },
-  {
-    name: "Item 2",
-    blurb: "Bar",
-  },
-  {
-    name: "Item 3",
-    blurb: "Baz",
-  },
-  {
-    name: "Item 4",
-    blurb: "Qux",
-  },
-];
-
 export default function Home() {
-  const [items, setItems] = useState<CartItem[]>([]);
-
-  const handleOnClickAddToCart = (product: string) => {
-    const alreadyInCart = items.find((item) => item.name === product);
-    if (alreadyInCart) {
-      // @TODO need to find out how to update cart items
-    } else {
-      setItems([...items, { name: product, quantity: 1 }]);
-    }
-  };
+  /**
+   * This should be fetched via an api but I am just using a local version of the products mock for now.
+   * Something like json-server can be also helpful to power your app off of mocks
+   *
+   * It can be found here:
+   * https://www.npmjs.com/package/json-server
+   **/
+  const itemsList = productsMock;
 
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        <p>Michael&apos;s Amazing Web Store</p>
-        <Basket items={items} />
+        <h1>Michael&apos;s Amazing Web Store</h1>
+        <Basket />
       </div>
 
-      <section>
+      <section className={styles["products-section"]}>
         <ProductList products={itemsList} />
       </section>
     </main>

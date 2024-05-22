@@ -1,6 +1,7 @@
 .product-list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
   max-width: 100%;
   width: var(--max-width);
   list-style: none;
@@ -69,7 +70,7 @@
     text-align: center;
   }
 
-  .product-cardcard {
+  .product-card {
     padding: 1rem 2.5rem;
   }
 
@@ -81,6 +82,7 @@
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .product-list {
-    grid-template-columns: repeat(2, minmax(50%, auto));
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
   }
 }
