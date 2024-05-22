@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { CartItem } from "@/types/cart";
 import Basket from "@/components/Basket";
+import ProductList from "@/components/ProductList";
 import styles from "./page.module.css";
 
 const itemsList = [
@@ -42,48 +43,9 @@ export default function Home() {
         <Basket items={items} />
       </div>
 
-      <div className={styles.grid}>
-        <button
-          className={styles.card}
-          onClick={() => handleOnClickAddToCart("Item 1")}
-          aria-label="Add to basket"
-        >
-          <h2>
-            Item 1 <span>-&gt;</span>
-          </h2>
-          <p>Foo</p>
-        </button>
-        <button
-          className={styles.card}
-          onClick={() => handleOnClickAddToCart("Item 2")}
-          aria-label="Add to basket"
-        >
-          <h2>
-            Item 2 <span>-&gt;</span>
-          </h2>
-          <p>Bar</p>
-        </button>
-        <button
-          className={styles.card}
-          onClick={() => handleOnClickAddToCart("Item 3")}
-          aria-label="Add to basket"
-        >
-          <h2>
-            Item 3 <span>-&gt;</span>
-          </h2>
-          <p>Baz</p>
-        </button>
-        <button
-          className={styles.card}
-          onClick={() => handleOnClickAddToCart("Item 4")}
-          aria-label="Add to basket"
-        >
-          <h2>
-            Item 4 <span>-&gt;</span>
-          </h2>
-          <p>Qux</p>
-        </button>
-      </div>
+      <section>
+        <ProductList products={itemsList} />
+      </section>
     </main>
   );
 }

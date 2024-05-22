@@ -23,7 +23,7 @@ describe("Basket", () => {
 
   describe("displays the correct total count of items in the basket", () => {
     test("when there is items in the basket", () => {
-      const screen = render(<Basket items={mockItems} />);
+      const screen = render(<Basket />);
 
       const expectedNumberOfItemsInTheBasket = mockItems.reduce((acc, item) => {
         return acc + item.quantity;
@@ -49,7 +49,7 @@ describe("Basket", () => {
   });
 
   test("displays each item in the basket", () => {
-    const screen = render(<Basket items={mockItems} />);
+    const screen = render(<Basket />);
 
     mockItems.forEach((item) => {
       const itemName = screen.getByText(item.name);
