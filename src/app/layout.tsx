@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import BasketContext from "@/state/contexts/BasketContext";
+import RootProviders from "@/components/RootProviders";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 /**
  * Since on most e-commerce sites the basket context is needed to help manage your basket state
- * in your header component, I think this will be required as part of the layout component 
+ * in your header component, I think this will be required as part of the layout component
  */
 export default function RootLayout({
   children,
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <BasketContext>{children}</BasketContext>
+        <RootProviders>{children}</RootProviders>
       </body>
     </html>
   );
