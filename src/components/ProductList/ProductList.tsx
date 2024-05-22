@@ -26,9 +26,9 @@ const ProductList = ({ products = [] }: ItemsButtonsListProps) => {
             aria-label={`Add "${product.name}" to basket`}
             type="button"
           >
-            <h2>
+            <p className={styles["product-name"]}>
               {product.name} <span>-&gt;</span>
-            </h2>
+            </p>
             <p>{product.blurb}</p>
           </button>
         </li>

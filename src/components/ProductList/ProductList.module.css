@@ -31,17 +31,20 @@
   border: none;
 }
 
-.product-card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
 .product-card p {
   margin: 0;
   opacity: 0.6;
   font-size: 0.9rem;
   line-height: 1.5;
   max-width: 30ch;
+}
+
+.product-card .product-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: rgb(var(--foreground-rgb));
+  opacity: 1;
 }
 
 /* Enable hover only on non-touch devices */
@@ -75,7 +78,7 @@
     padding: 1rem 2.5rem;
   }
 
-  .product-card h2 {
+  .product-card .product-name {
     margin-bottom: 0.5rem;
   }
 }
