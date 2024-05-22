@@ -1,3 +1,5 @@
+import styles from "./BasketItem.module.css";
+
 interface BasketItemProps {
   name: string;
   count: number;
@@ -5,10 +7,10 @@ interface BasketItemProps {
 
 const BasketItem = ({ name, count }: BasketItemProps) => {
   return (
-    <div>
-      <p>{name}</p>
-      <p>count: {count}</p>
-    </div>
+    <li className={styles["basket-item"]}>
+      <p className={styles["basket-item-text"]}>{name}</p>
+      <p className={styles["basket-item-text"]}>count: {count}</p>
+    </li>
   );
 };
 
