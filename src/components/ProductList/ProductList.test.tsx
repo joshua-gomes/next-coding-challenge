@@ -1,5 +1,6 @@
 import { fireEvent, getByText, render, waitFor } from "@testing-library/react";
 import * as useBasketContextModule from "@/hooks/useBasketContext";
+import { productsMock } from "@/mocks/products/productsMock";
 import ProductList from "./ProductList";
 
 jest.mock("@/hooks/useBasketContext", () => ({
@@ -8,17 +9,11 @@ jest.mock("@/hooks/useBasketContext", () => ({
   },
 }));
 
-const mockProducts = [
-  { name: "Item 1", blurb: "Blue" },
-  { name: "Item 2", blurb: "Red" },
-  { name: "Item 3", blurb: "Green" },
-];
-
 describe("ProductList", () => {
   test("displays all the products passed into it as a prop", () => {
-    const screen = render(<ProductList products={mockProducts} />);
+    const screen = render(<ProductList products={productsMock} />);
 
-    mockProducts.forEach((product) => {
+    productsMock.forEach((product) => {
       const productCard = screen.getByRole("button", {
         name: `Add "${product.name}" to basket`,
       });
@@ -49,9 +44,9 @@ describe("ProductList", () => {
         addItemToBasket: () => {},
       }));
 
-    const screen = render(<ProductList products={mockProducts} />);
+    const screen = render(<ProductList products={productsMock} />);
 
-    const testProduct = mockProducts[0];
+    const testProduct = productsMock[0];
     const productCard = screen.getByRole("button", {
       name: `Add "${testProduct.name}" to basket`,
     });
