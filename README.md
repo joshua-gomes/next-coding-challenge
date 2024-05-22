@@ -14,8 +14,6 @@ Throughout the test I tried to write tests for every component I created. I enjo
 
 I also enjoy writing against test cases that are described in the gherkin format. They can be really helpful when trying to write tests that follow BDD. There is a really great library which can be used to help map these gherkin requirements to actual test cases. It is called [jest-cucumber](https://www.npmjs.com/package/jest-cucumber).
 
-**Note:** I did struggle trying to spy on some the **useBasketContext** hook to help isolate my unit tests, but it just wasn't intercepting the call in the component. This is something I am usually able to do at work without an issue so I wonder if it might be something related to some different test configuration. I have decided to use skip those tests for now since they are covered by the page-level tests. If I had more time I would try figure out why I am having issues spying on that **useBasketContext** hook.
-
 ### Styling
 
 With no design to reference it is hard to say if it is meant to look the way it currently looks. I tried my best to follow the original styling after using elements that are more semantic. I also noticed that the styles weren't done mobile first. If I had some extra time I would refactor the styles so they are mobile first and use breakpoint that utilise **min-width** so the styles progressively override the mobiles styles with larger viewports.

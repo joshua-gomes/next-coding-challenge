@@ -1,13 +1,12 @@
 "use client";
 
-import { useContext, useMemo } from "react";
-import { CartItem } from "@/types/cart";
+import { useMemo } from "react";
+import { useBasketContext } from "@/hooks/useBasketContext";
 import BasketItem from "./components/BasketItem";
 import styles from "./Basket.module.css";
-import { BasketContext } from "@/state/contexts/BasketContext";
 
 const Basket = () => {
-  const { basket } = useContext(BasketContext);
+  const { basket } = useBasketContext();
 
   const itemCount = useMemo(() => {
     return basket.reduce((acc, item) => {
