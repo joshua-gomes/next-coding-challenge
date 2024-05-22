@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 /**
  * Since on most e-commerce sites the basket context is needed to help manage your basket state
- * in your header component, I think this will be required as part of the layout components 
+ * in your header component, I think this will be required as part of the layout component 
  */
 export default function RootLayout({
   children,
