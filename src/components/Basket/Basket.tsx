@@ -1,16 +1,19 @@
-import { memo } from "react";
+"use client";
+
+import { useContext, useMemo } from "react";
 import { CartItem } from "@/types/cart";
 import BasketItem from "./components/BasketItem";
 import styles from "./Basket.module.css";
+import { BasketContext } from "@/state/contexts/BasketContext";
 
-interface BasketProps {
-  items: CartItem[];
-}
+const Basket = () => {
+  const { basket } = useContext(BasketContext);
 
-const Basket = memo(({ items = [] }: BasketProps) => {
-  const itemCount = items.reduce((acc, item) => {
-    return acc + item.quantity;
-  }, 0);
+  const itemCount = useMemo(() => {
+    return basket.reduce((acc, item) => {
+      return acc + item.quantity;
+    }, 0);
+  }, [basket]);
 
   /**
    * Not sure if the list should be sorted by name, so I have left it unsorted.
@@ -19,9 +22,9 @@ const Basket = memo(({ items = [] }: BasketProps) => {
   return (
     <section>
       <h2 className={styles.basket}>Basket: {itemCount} items</h2>
-      {items.length > 0 && (
+      {basket.length > 0 && (
         <ul aria-label="Basket items">
-          {items.map((item) => (
+          {basket.map((item) => (
             <BasketItem
               key={item.name}
               name={item.name}
@@ -32,6 +35,6 @@ const Basket = memo(({ items = [] }: BasketProps) => {
       )}
     </section>
   );
-});
+};
 
 export default Basket;
