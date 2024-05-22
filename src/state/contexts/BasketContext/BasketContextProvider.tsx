@@ -50,14 +50,10 @@ const BasketContextProvider = ({
           quantity: matchedItem.quantity + quantity,
         };
 
-        const basketItemsCopy = [...basketItems];
-        const updatedBasketItems = basketItemsCopy.splice(
-          matchedItemIndex,
-          1,
-          updatedItem
-        );
+        const updatedItems = basketItems.slice();
+        updatedItems.splice(matchedItemIndex, 1, updatedItem);
 
-        return updatedBasketItems;
+        return updatedItems;
       });
     } else {
       setBasketItems((prev) => [...prev, { name: productName, quantity }]);

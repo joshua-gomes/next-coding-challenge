@@ -5,7 +5,7 @@ import BasketContextProvider from "./BasketContextProvider";
 
 const mockItem = {
   name: "Item 1",
-  quantity: 2,
+  quantity: 1,
 };
 
 describe("BasketContextProvider", () => {
@@ -17,7 +17,7 @@ describe("BasketContextProvider", () => {
     const { basket, addItemToBasket } = useContext(BasketContext);
 
     const handleOnClick = () => {
-      addItemToBasket(mockItem.name, mockItem.quantity);
+      addItemToBasket(mockItem.name, 1);
     };
 
     return (
@@ -55,6 +55,27 @@ describe("BasketContextProvider", () => {
     await waitFor(() => {
       const basketState = screen.getByTestId("basket-state");
       expect(basketState.textContent).toEqual(JSON.stringify([mockItem]));
+    });
+  });
+
+  test("allows children to add multiple of the same item to cart", async () => {
+    const screen = render(
+      <BasketContextProvider>
+        <TestComponent />
+      </BasketContextProvider>
+    );
+
+    const addItemToBasketButton = screen.getByRole("button", {
+      name: "Add Item To Basket",
+    });
+    fireEvent.click(addItemToBasketButton);
+    fireEvent.click(addItemToBasketButton);
+
+    await waitFor(() => {
+      const basketState = screen.getByTestId("basket-state");
+      expect(basketState.textContent).toEqual(
+        JSON.stringify([{ name: mockItem.name, quantity: 2 }])
+      );
     });
   });
 });
