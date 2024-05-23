@@ -1,7 +1,12 @@
+import { Metadata } from "next";
 import Basket from "@/components/Basket";
 import ProductList from "@/components/ProductList";
 import { productsMock } from "@/mocks/products/productsMock";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Product page",
+};
 
 export default function Home() {
   /**
@@ -14,15 +19,17 @@ export default function Home() {
   const itemsList = productsMock;
 
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <h1>Michael&apos;s Amazing Web Store</h1>
-        <Basket />
-      </div>
+    <>
+      <main className={styles.main}>
+        <div className={styles.description}>
+          <h1>Michael&apos;s Amazing Web Store</h1>
+          <Basket />
+        </div>
 
-      <section className={styles["products-section"]}>
-        <ProductList products={itemsList} />
-      </section>
-    </main>
+        <section className={styles["products-section"]}>
+          <ProductList products={itemsList} />
+        </section>
+      </main>
+    </>
   );
 }
