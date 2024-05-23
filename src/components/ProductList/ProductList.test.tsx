@@ -37,7 +37,7 @@ describe("ProductList", () => {
     });
   });
 
-  test("adds item to cart when product is clicked on", async () => {
+  test("adds item to basket when product is clicked on", async () => {
     const addItemToBasket = jest.fn();
     useBasketContextMock.mockImplementation(() => ({
       basket: [],

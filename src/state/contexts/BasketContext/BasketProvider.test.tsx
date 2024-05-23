@@ -58,7 +58,7 @@ describe("BasketContextProvider", () => {
     });
   });
 
-  test("allows children to add multiple of the same item to cart", async () => {
+  test("allows children to add multiple of the same item to basket", async () => {
     const screen = render(
       <BasketContextProvider>
         <TestComponent />

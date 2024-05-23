@@ -1,13 +1,13 @@
 "use client";
 
 import { createContext } from "react";
-import type { CartItem } from "@/types/cart";
+import type { BasketItem } from "@/types/basket";
 
 export interface BasketContextType {
-  basket: CartItem[];
+  basket: BasketItem[];
   addItemToBasket: (
-    name: CartItem["name"],
-    quantity: CartItem["quantity"]
+    name: BasketItem["name"],
+    quantity: BasketItem["quantity"]
   ) => void;
 }
 

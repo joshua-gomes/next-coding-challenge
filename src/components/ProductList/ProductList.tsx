@@ -8,7 +8,7 @@ interface ItemsButtonsListProps {
   products: Product[];
 }
 
-const CART_QUANTITY_TO_ADD = 1;
+const ITEM_QUANTITY_TO_ADD = 1;
 
 const ProductList = ({ products = [] }: ItemsButtonsListProps) => {
   const { addItemToBasket } = useBasketContext();
@@ -22,7 +22,7 @@ const ProductList = ({ products = [] }: ItemsButtonsListProps) => {
       {products.map((product) => (
         <li key={product.name} className={styles["product-card"]}>
           <button
-            onClick={() => addItemToBasket(product.name, CART_QUANTITY_TO_ADD)}
+            onClick={() => addItemToBasket(product.name, ITEM_QUANTITY_TO_ADD)}
             aria-label={`Add "${product.name}" to basket`}
             type="button"
           >

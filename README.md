@@ -2,9 +2,9 @@
 
 ## Candidate Notes:
 
-### Mocking out data and keeping cart state
+### Mocking out data and keeping basket state
 
-I was not sure if the intent of the test was to setup APIs to fetch product data and to maintain a cart. I kept the solution of managing the cart data in state and left a note on why I think having an api which we sync our state with would be better and help reduce business logic on the frontend.
+I was not sure if the intent of the test was to setup APIs to fetch product data and to maintain a basket. I kept the solution of managing the basket data in state and left a note on why I think having an api which we sync our state with would be better and help reduce business logic on the frontend.
 
 Also, with the product data I just used a local mock to power the product feed. I mentioned that using something like [json-server](https://www.npmjs.com/package/json-server), might be something worth using to help quickly setup a server which can be powered by the mocks.
 
